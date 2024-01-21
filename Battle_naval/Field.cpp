@@ -36,7 +36,7 @@ void Field::fill(const CellType el) {
 
 void Field::Show(){
         std::cout << "\n";
-        std::cout << "\n" << "\n" << "\n";
+        std::cout << "\n";
         //создание и заполнение таблиц
         std::cout << ' ';
         for (int y = 0; y < this->get_width(); y++) {

@@ -30,13 +30,16 @@ void Game::generate_bot_ships()
 
 void Game::Battle()
 {
-    field_a->fill(CellType::TypeQ);
-    field_b->fill(CellType::TypeQ);
+    /*field_a->fill(CellType::TypeQ);
+    field_b->fill(CellType::Type0);*/
+    std::cout << "Добро пожаловать в морской бой!" << "\n";
+    ships->Set_cor();
     generate_bot_ships();
 
     Platform::Sleep(2000);
     Platform::CleanScreen();
-    field_a->Show();
+    std::cout << "Ваше игровое поле" << "\n";
+    field_b->Show();
     while (this->hit_counter < (this->count_ship+(this->count_ship2)*2) ) {
         this->attack();
 
@@ -52,14 +55,17 @@ void Game::Battle()
 void Game::attack()
 {
         int hit_x, hit_y;
-        std::cout << "делайте ход, введитекоординаты\n";
-        std::cout << "Введите номер столбца:"; std::cin >> hit_x;
-        std::cout << "Введите номер строки: "; std::cin >> hit_y;
+        std::cout << "\n";
+        std::cout << "делайте ход, введите координаты\n";
+        std::cout << "Введите номер строки:"; std::cin >> hit_x;
+        std::cout << "Введите номер столбца: "; std::cin >> hit_y;
         if (field_a->Get(hit_x, hit_y) == CellType::Ship) {
             this->Strike(hit_x, hit_y);
+            std::cout << "вы попали!" << "\n";
         }
         else {
             this->Miss(hit_x, hit_y);
+            std::cout << "вы промахнулись" << "\n";
         }
         Platform::CleanScreen();
         field_b->Show();
