@@ -21,6 +21,7 @@ public:
 
 	void Strike(int x, int y);
 	void Miss(int x, int y);
+	~Game();
 
 
 private:

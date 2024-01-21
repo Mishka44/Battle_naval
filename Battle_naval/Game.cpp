@@ -87,3 +87,10 @@ void Game::Miss(int x, int y)
     std::cout << "вы промахнулись" << "\n";
     this->hitting_field++;
 }
+
+Game::~Game()
+{
+    delete field_a;
+    delete field_b;
+    delete ships;
+}

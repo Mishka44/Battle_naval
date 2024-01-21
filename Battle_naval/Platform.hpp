@@ -15,14 +15,7 @@ public:
     static void Init();
     static void CleanScreen();
     static void Sleep(int s);
-    void Set_ships_count();
-    int get_count1();
-    int get_count2();
-    void Set_count1(int num);
-    void Set_count2(int num);
-private:
-    int count_1;
-    int count_2;
+
     
 
 };
