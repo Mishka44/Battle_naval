@@ -32,6 +32,8 @@ void Game::Battle()
 {
     field_a->fill(CellType::TypeQ);
     field_b->fill(CellType::TypeQ);
+    generate_bot_ships();
+
     Platform::Sleep(2000);
     Platform::CleanScreen();
     field_a->Show();

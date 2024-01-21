@@ -19,11 +19,9 @@ int main() {
 	Field fil;
 	Field fil2;
 	Platform t;
-	//t.Set_ships_count();
-	ship_kipper ships(1, 2);
-	Game game(&fil, &fil2, &ships, 1, 2);
-    game.generate_bot_ships();
-    fil2.Show();
+	t.Set_ships_count();
+	ship_kipper ships(t.get_count1(), t.get_count2());
+    Game game(&fil, &fil2, &ships, t.get_count1(), t.get_count2());
     game.Battle();
     return 0;
 }
