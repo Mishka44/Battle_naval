@@ -1,5 +1,16 @@
 #include "Game.hpp"
 
+bool Check_input(int num1, int num2) {
+    bool flag = true;
+    if ((num1 > 9 || num2 > 9)) {
+        flag = false;
+    }
+    else if (num1 < 0 || num2 < 0) {
+        flag = false;
+    }
+    return flag;
+}
+
 void Game::generate_bot_ships()
 {
     short l;
@@ -59,6 +70,13 @@ void Game::attack()
         std::cout << "делайте ход, введите координаты\n";
         std::cout << "¬ведите номер строки:"; std::cin >> hit_x;
         std::cout << "¬ведите номер столбца: "; std::cin >> hit_y;
+        if (Check_input(hit_x, hit_y) == false) {
+            std::cout << "неверные координаты, попробуйте ещЄ раз!" << "\n";
+            Platform::Sleep(2000);
+            Platform::CleanScreen();
+            field_b->Show();
+            attack();
+        }
         if (field_a->Get(hit_x, hit_y) == CellType::Ship) {
             this->Strike(hit_x, hit_y);
             std::cout << "вы попали!" << "\n";
@@ -67,6 +85,7 @@ void Game::attack()
             this->Miss(hit_x, hit_y);
             std::cout << "вы промахнулись" << "\n";
         }
+        Platform::Sleep(2000);
         Platform::CleanScreen();
         field_b->Show();
 
@@ -76,7 +95,6 @@ void Game::Strike(int x, int y)
 {
     field_b->set(x, y, CellType::Hit);
     std::cout << '\n';
-    std::cout << "вы попали!" << "\n";
     this->hit_counter++;
     this->hitting_field++;
 }
@@ -84,9 +102,9 @@ void Game::Strike(int x, int y)
 void Game::Miss(int x, int y)
 {
     field_b->set(x, y, CellType::Miss);
-    std::cout << "вы промахнулись" << "\n";
     this->hitting_field++;
 }
+
 
 Game::~Game()
 {
