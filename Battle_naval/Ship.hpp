@@ -7,7 +7,10 @@
 class Ship {
 public:
 	
-	Ship(int len):len_(len){}
+	Ship(int len):len_(len){
+		x_ = 0;
+		y_ = 0;
+	}
 
 	void Set_x(int new_x);
 	void Set_y(int new_y);

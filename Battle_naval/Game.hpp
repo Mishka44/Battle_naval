@@ -15,7 +15,6 @@ public:
 		hit_counter = 0;
 		hitting_field = 0;
 	}
-	void generate_bot_ships();
 	
 	void Battle();
 
@@ -27,6 +26,7 @@ public:
 
 
 private:
+	void generate_bot_ships();
 	Field* field_a;
 	Field* field_b;
 	ship_kipper* ships;

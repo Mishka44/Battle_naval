@@ -4,6 +4,7 @@
 #include <iostream>
 #include <windows.h>
 #include <cstdlib>
+#include <random>
 #include <ctime>
 #include <string>
 #include <vector>
