@@ -11,6 +11,7 @@
 
 
 
+
 class Platform {
 public:
     static void Init();
@@ -20,6 +21,7 @@ public:
     
 
 };
+
 
 enum class CellType
 {
@@ -31,7 +33,7 @@ enum class CellType
     Miss, // x
 
 };
-
+int Process();
 //std::ostream& operator<<(std::ostream& os, const CellType& c)
 //{
 //    switch (c) {

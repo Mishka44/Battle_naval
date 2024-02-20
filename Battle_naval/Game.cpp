@@ -1,14 +1,7 @@
 #include "Game.hpp"
 
 bool Check_input(int num1, int num2) {
-    bool flag = true;
-    if ((num1 > 9 || num2 > 9)) {
-        flag = false;
-    }
-    else if (num1 < 0 || num2 < 0) {
-        flag = false;
-    }
-    return flag;
+    return max(num1, num2) <= 9 && min(num1, num2) >= 0;
 }
 
 void Game::generate_bot_ships()
@@ -19,7 +12,6 @@ void Game::generate_bot_ships()
     {
         if (el->Get_len() == 1) {
             field_a->set(el->Get_x(), el->Get_y(), CellType::Ship);
-            Platform::Sleep(200);
         }
         else if (el->Get_len() == 2) {
             int u = 0;
@@ -34,7 +26,6 @@ void Game::generate_bot_ships()
                     }
                 }
             }
-            Platform::Sleep(200);
         }
     }
 }
@@ -53,7 +44,6 @@ void Game::Battle()
     field_b->Show();
     while (this->hit_counter < (this->count_ship+(this->count_ship2)*2) ) {
         this->attack();
-
     }
     std::cout << "Поздравляем! вы подбили все корабли!" << "\n";
     std::cout << "количетсво ударов: " << this->hitting_field + this->hit_counter << "\n";

@@ -1,11 +1,9 @@
-﻿#include "Game.hpp"
+﻿#include "Platform.hpp"
+#include "Game.hpp"
 #include "Field.hpp"
 #include "Ship_kipper.hpp"
-#include "Platform.hpp"
 
 
-
-#include "Field.hpp"
 #include <iostream>
 #include <windows.h>
 #include <cstdlib>
